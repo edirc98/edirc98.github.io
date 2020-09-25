@@ -7,11 +7,59 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
     <title>Edgar Rodríguez</title>
   </head>
   <body>
-    <h1>Hello, world!</h1>
+
+  	<div class="container-fluid">
+  		<section id="about"> 
+	  		<div class="col">
+	  			<div class="row justify-content-center" style="background-color: grey">
+		  			<img  src="img/profile.png" class="imgProfile" alt="profile">	
+	  			</div>
+	  			<div class="row justify-content-center" style="background-color: orange" >
+	  				<h1>Edgar Rodríguez</h1>
+	  			</div>
+	  			<div class="row justify-content-center">
+	  				<h1>
+	  					<span id="typed"></span>
+	  				</h1>
+	  				<div id="typed-strings">
+					     <p>Videogame Developer.</p>
+					     <p>3D Artist.</p>
+					     <p>Programmer.</p>
+					     <p>Player.</p>
+					</div>
+	  			</div>
+	  			<div class=" row justify-content-center">
+	  				<div>
+		  				<span class="fa-stack fa-2x">
+						  <i class="fas fa-circle fa-stack-2x"></i>
+						  <i class="fab fa-linkedin fa-stack-1x fa-inverse hoverColor"></i>
+						</span>
+						<span class="fa-stack fa-2x">
+						  <i class="fas fa-circle fa-stack-2x"></i>
+						  <i class="fab fa-artstation fa-stack-1x fa-inverse hoverColor"></i>
+						</span>
+						<span class="fa-stack fa-2x">
+						  <i class="fas fa-circle fa-stack-2x"></i>
+						  <i class="fab fa-instagram fa-stack-1x fa-inverse hoverColor"></i>
+						</span>
+						<span class="fa-stack fa-2x">
+						  <i class="fas fa-circle fa-stack-2x"></i>
+						  <i class="fab fa-github fa-stack-1x fa-inverse hoverColor"></i>
+						</span>
+					</div>
+	  			</div>
+	  		</div>
+  		</section>
+  		<section id="education">
+  			
+  		</section>
+  	</div>
+    
 
 
     <!-- Optional JavaScript -->
@@ -19,5 +67,14 @@
     <script src="node_modules/jQuery/dist/jQuery.min.js"></script>
     <script src="node_modules/popper.js/dist/Popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="node_modules/typed.js/lib/typed.js"></script>
+    <script>
+    	var typed = new Typed('#typed',{
+                    stringsElement: '#typed-strings',
+                    backSpeed: 40,
+                    typeSpeed: 40,
+                    loop: true
+                  });
+    </script>
   </body>
 </html>
