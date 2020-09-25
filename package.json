@@ -1,0 +1,19 @@
+{
+  "name": "edirc98.github.io",
+  "version": "1.0.0",
+  "description": "Edgar Rodríguez personal web page",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edirc98/edirc98.github.io.git"
+  },
+  "author": "Edgar Rodríguez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edirc98/edirc98.github.io/issues"
+  },
+  "homepage": "https://github.com/edirc98/edirc98.github.io#readme"
+}
