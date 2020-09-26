@@ -13,17 +13,37 @@
   </head>
   <body>
 
-  	<div class="container-fluid">
-  		<section id="about"> 
+	<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+	  <a class="navbar-brand js-scroll-trigger" href="#home">Edgar Rodríguez</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+	    <div class="collapse navbar-collapse" id="navbarNav">
+		    <div class="navbar-nav">
+		      <a class="nav-item nav-link active js-scroll-trigger" href="#home">Home <span class="sr-only">(current)</span></a>
+		      <a class="nav-item nav-link js-scroll-trigger" href="#about">About me</a>
+		      <a class="nav-item nav-link js-scroll-trigger" href="#experience">Experience</a>
+		      <a class="nav-item nav-link js-scroll-trigger " href="#education">Education</a>
+		      <a class="nav-item nav-link js-scroll-trigger " href="#skills">Skills</a>
+		      <a class="nav-item nav-link js-scroll-trigger " href="#portfolio">Porfolio</a>
+		    </div>
+  		</div>
+  		<form class="form-inline">
+		    <button class="btn btn-outline-success my-2 my-sm-0" type="button">Contact Me</button>
+		</form>
+	</nav>
+
+  	<div class="container-fluid p-0">
+  		<section id="home"> 
 	  		<div class="col">
-	  			<div class="row justify-content-center" style="background-color: grey">
+	  			<div class="row justify-content-center">
 		  			<img  src="img/profile.png" class="imgProfile" alt="profile">	
 	  			</div>
-	  			<div class="row justify-content-center" style="background-color: orange" >
-	  				<h1>Edgar Rodríguez</h1>
+	  			<div class="row justify-content-center" >
+	  				<h1 class="text-center">Edgar Rodríguez</h1>
 	  			</div>
 	  			<div class="row justify-content-center">
-	  				<h1>
+	  				<h1 class="text-center">
 	  					<span id="typed"></span>
 	  				</h1>
 	  				<div id="typed-strings">
@@ -33,30 +53,70 @@
 					     <p>Player.</p>
 					</div>
 	  			</div>
-	  			<div class=" row justify-content-center">
-	  				<div>
-		  				<span class="fa-stack fa-2x">
-						  <i class="fas fa-circle fa-stack-2x"></i>
-						  <i class="fab fa-linkedin fa-stack-1x fa-inverse hoverColor"></i>
-						</span>
-						<span class="fa-stack fa-2x">
-						  <i class="fas fa-circle fa-stack-2x"></i>
-						  <i class="fab fa-artstation fa-stack-1x fa-inverse hoverColor"></i>
-						</span>
-						<span class="fa-stack fa-2x">
-						  <i class="fas fa-circle fa-stack-2x"></i>
-						  <i class="fab fa-instagram fa-stack-1x fa-inverse hoverColor"></i>
-						</span>
-						<span class="fa-stack fa-2x">
-						  <i class="fas fa-circle fa-stack-2x"></i>
-						  <i class="fab fa-github fa-stack-1x fa-inverse hoverColor"></i>
-						</span>
-					</div>
+	  			<div class="myicons d-flex flex-wrap justify-content-center">
+	  				<a class="icon" href="https://www.linkedin.com/in/edgarrodriguezdelacalle" target="_blank"><i class="fab fa-linkedin"></i></a>
+	  				<a class="icon" href="https://www.artstation.com/edirc98" target="_blank"><i class="fab fa-artstation"></i></a>
+	  				<a class="icon" href="https://www.instagram.com/edgarrrodriguez.3d/" target="_blank"><i class="fab fa-instagram"></i></a>
+	  				<a class="icon" href="https://github.com/edirc98" target="_blank"><i class="fab fa-github"></i></a>
 	  			</div>
 	  		</div>
   		</section>
+
+  		<section id="about">
+  			<div class=" title row justify-content-center">
+  				<h1>ABOUT ME</h1>	
+  			</div>
+  		</section>
+
+
+
+  		<section id="experience">
+  			<div class=" title row justify-content-center">
+  				<h1>EXPERIENCE</h1>	
+  			</div>
+  			<div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                <div class="flex-grow-1">
+                    <h3 class="heading">VR Unity Developer - Investigador</h3>
+                    <div class="subheading">EventLab</div>
+                    <p class="information">Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet.</p>
+                </div>
+                <div class="flex-shrink-0"><span class="date">Septiembre 2019 - Enero 2020</span></div>
+            </div>
+            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                <div class="flex-grow-1">
+                    <h3 class="heading">Profesor de robotica y programación</h3>
+                    <div class="subheading">Learnick</div>
+                    <p class="information">Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet.</p>
+                </div>
+                <div class="flex-shrink-0"><span class="date">Octubre 2018 - Junio 2019</span></div>
+            </div>
+  		</section>
+
+
   		<section id="education">
-  			
+  			<div class=" title row justify-content-center">
+  				<h1>EDUCATION</h1>	
+  			</div>
+  			<div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                <div class="flex-grow-1">
+                    <h2 class="heading">Universidad de Barcelona - ENTI</h2>
+                    <div class="subheading">Grado en Contenidos Digitales Interacitvos</div>
+                </div>
+                <div class="flex-shrink-0"><span class="date">Septiembre 2016 - Julio 2020</span></div>
+            </div>
+            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                <div class="flex-grow-1">
+                    <h2 class="heading">Instituto Berenguer D'entença</h2>
+                    <div class="subheading">Bachillerato Tecnológico</div>
+                </div>
+                <div class="flex-shrink-0"><span class="date">Septiembre 2014 - Junio 2016</span></div>
+            </div>
+  		</section>
+  		<section id="skills">
+  			<h2>SKILLS</h2>
+  		</section>
+  		<section id="portfolio">
+  			<h2>PORFOLIO</h2>
   		</section>
   	</div>
     
@@ -67,6 +127,8 @@
     <script src="node_modules/jQuery/dist/jQuery.min.js"></script>
     <script src="node_modules/popper.js/dist/Popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="js/scripts.js"></script>
     <script src="node_modules/typed.js/lib/typed.js"></script>
     <script>
     	var typed = new Typed('#typed',{

@@ -1,8 +1,63 @@
 .imgProfile{
+	width: 30%;
 	border-radius: 50%;
+	border: 5px solid orange;
+	margin-top: 10px; 
+	margin-bottom: 10px;
 }
 
 .hoverColor:hover{
 	color: red;
+	
 }
 
+.myicons .icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: 1.5rem;
+	height: 4rem; 
+	width: 4rem;
+	border-radius: 100%;
+	background-color: #555555;
+	color: #fff;
+	font-size: 2rem; 
+}
+.myicons .icon:hover{
+	background-color: orange;
+	transform: scale(1.05);
+}
+
+
+.title{
+	vertical-align: middle;
+	margin-left: 3rem;
+	margin-right: 3rem;
+	margin-top: 3rem;
+	margin-bottom: 3rem;
+	background-color: orange;
+	color: white;
+}
+.heading{
+	margin-left: 6rem; 
+  	text-transform: uppercase;
+  	font-weight: 500;
+  	font-size: 2rem;
+}
+
+.subheading{
+	margin-left: 6rem;
+	margin-bottom: 1rem;
+  	font-weight: 250;
+  	font-size: 1.5rem;
+}
+.date{
+	font-size: 1rem; 
+	background-color: grey;
+	color: white;
+	margin-left: 6rem; 
+	margin-right: 4rem;
+}
+.information{
+	margin-left: 6rem;
+}
