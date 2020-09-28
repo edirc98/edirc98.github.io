@@ -1,14 +1,19 @@
+
+.colors{
+	color:#3f3f3f - Grey
+	color:#e6a95b - Ligth Orange
+	color:#dc8923 - Dark Orange
+}
+body{
+	font-family: 'Montserrat', sans-serif;
+}
+
 .imgProfile{
 	width: 30%;
 	border-radius: 50%;
-	border: 5px solid orange;
-	margin-top: 10px; 
-	margin-bottom: 10px;
-}
-
-.hoverColor:hover{
-	color: red;
-	
+	border: 7px solid #e6a95b; 
+	margin-bottom: 1rem;
+	margin-top: 1rem;
 }
 
 .myicons .icon {
@@ -19,26 +24,65 @@
 	height: 4rem; 
 	width: 4rem;
 	border-radius: 100%;
-	background-color: #555555;
-	color: #fff;
+	background-color: #fff;
+	color: #3f3f3f;
 	font-size: 2rem; 
 }
 .myicons .icon:hover{
-	background-color: orange;
-	transform: scale(1.05);
+	background-color: #e6a95b;
+	transform: scale(1.1);
+}
+.navbar-custom{
+	background-color: #dc8923;
+}
+/* change the brand and text color */
+.navbar-custom .navbar-brand{
+	color: rgba(255,255,255,1);
+}
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+    color: rgba(255,255,255,.5);
+}
+/* change the color of active or hovered links */
+.navbar-custom .nav-item{
+	color: #ffffff;
+}
+.navbar-custom .nav-item:hover{
+    color: #ffffff;
+    background-color: #e6a95b;
+    transform: scale(1.02);
+    border-radius: 1rem;
+}
+.navbar-custom .nav-item.active{
+    color: #ffffff;
+    background-color: #e6a95b;
+    border-radius: 1rem;
 }
 
+.name{
+	color: white;
+	font-size: 3rem;
+}
+.subname{
+	color: white;
+	font-size: 2rem;
+	margin-top: 1rem;
+	margin-bottom: 2rem;
+}
 
 .title{
 	vertical-align: middle;
-	margin-left: 3rem;
-	margin-right: 3rem;
-	margin-top: 3rem;
-	margin-bottom: 3rem;
-	background-color: orange;
+	padding-top: 1rem;
+	padding-bottom:1rem;
 	color: white;
+	background-color: #e6a95b;
+}
+.title-text{
+	font-size: 2rem;
+	font-weight: 500;
 }
 .heading{
+	margin-top: 2rem;
 	margin-left: 6rem; 
   	text-transform: uppercase;
   	font-weight: 500;
@@ -53,11 +97,55 @@
 }
 .date{
 	font-size: 1rem; 
-	background-color: grey;
 	color: white;
+	margin-top: 3rem;
 	margin-left: 6rem; 
 	margin-right: 4rem;
+
+}
+.date-bg{
+	background-color: #3f3f3f;
+	padding: 0.75rem;
+	border-radius: 1.5rem;
 }
 .information{
 	margin-left: 6rem;
+}
+
+.section-content{
+ 	align-items: center;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	padding-top: 3.5rem;
+	padding-bottom: 5rem;
+}
+.orange-bg{
+	background-color: #e6a95b;
+}
+.grey-bg{
+	background-color: #3f3f3f;
+}
+.white-bg{
+	background-color: white;
+}
+
+.divider-custom {
+  margin: 1.25rem 0 1.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.divider-custom .divider-custom-line {
+  width: 100%;
+  max-width: 20rem;
+  height: 0.25rem;
+  background-color: #2c3e50;
+  border-radius: 1rem;
+  border-color: #2c3e50 !important;
+  margin-right: 2rem;
+  margin-left: 2rem;
+}
+.divider-custom.divider-light .divider-custom-line {
+  background-color: #fff;
 }
