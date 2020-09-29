@@ -4,6 +4,7 @@
     * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-resume/blob/master/LICENSE)
     */
     (function ($) {
+
     "use strict"; // Start of use strict
 
     // Smooth scrolling using jQuery easing
@@ -40,3 +41,10 @@
         target: "#sideNav",
     });
 })(jQuery); // End of use strict
+
+$(function () {
+    /*Use tooltip*/
+        $('[data-toggle="tooltip"]').tooltip();
+
+        $('[data-toggle="popover"]').popover();
+      });  

@@ -4,6 +4,7 @@
 	color:#e6a95b - Ligth Orange
 	color:#dc8923 - Dark Orange
 }
+
 body{
 	font-family: 'Montserrat', sans-serif;
 }
@@ -16,7 +17,7 @@ body{
 	margin-top: 1rem;
 }
 
-.myicons .icon {
+.myicons .icon{
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
@@ -27,11 +28,35 @@ body{
 	background-color: #fff;
 	color: #3f3f3f;
 	font-size: 2rem; 
+	text-decoration: none;
+
+}
+.skill-icon{
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: 1.5rem;
+	height: 8rem; 
+	width: 8rem;
+	border-radius: 30%;
+	background-color: #3f3f3f;
+	color: #fff; 
+	font-size: 4rem;
+	text-decoration: none;
+
+}
+.skill-icon:hover{
+	color: #dc8923;
+	transform: scale(1.02);
+	text-decoration: none;
 }
 .myicons .icon:hover{
 	background-color: #e6a95b;
 	transform: scale(1.1);
+	text-decoration: none;
 }
+
+
 .navbar-custom{
 	background-color: #dc8923;
 }
@@ -41,7 +66,7 @@ body{
 }
 /* change the link color */
 .navbar-custom .navbar-nav .nav-link {
-    color: rgba(255,255,255,.5);
+    color: rgba(255,255,255,.8);
 }
 /* change the color of active or hovered links */
 .navbar-custom .nav-item{
@@ -117,7 +142,10 @@ body{
 	padding-left: 1rem;
 	padding-right: 1rem;
 	padding-top: 3.5rem;
-	padding-bottom: 5rem;
+	padding-bottom: 1rem;
+}
+.section-icons{
+	margin-top: 2rem;
 }
 .orange-bg{
 	background-color: #e6a95b;
