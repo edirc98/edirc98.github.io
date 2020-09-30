@@ -233,3 +233,7 @@ body{
 .divider-custom.divider-light .divider-custom-line {
   background-color: #fff;
 }
+
+.footer{
+	padding:2rem;
+}
