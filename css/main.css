@@ -37,6 +37,17 @@ body{
 	text-decoration: none;
 }
 
+.custom-btn{
+	background-color: #3f3f3f;
+	border-radius: 1rem;
+	color: white;
+	font-size: 1rem;
+}
+.custom-btn:hover{
+	color:#e6a95b;
+	transform: scale(1.1); 
+}
+
 
 .navbar-custom{
 	background-color: #dc8923;
@@ -89,7 +100,7 @@ body{
 	text-align: center;
 }
 .heading{
-	margin-top: 2rem;
+	margin-top: 1rem;
 	margin-left: 6rem; 
   	text-transform: uppercase;
   	font-weight: 500;
@@ -97,8 +108,7 @@ body{
 }
 
 .subheading{
-	margin-left: 6rem;
-	margin-bottom: 1rem;
+	margin-left: 8rem;
   	font-weight: 250;
   	font-size: 1.5rem;
 }
@@ -158,7 +168,7 @@ body{
 	color: 3f3f3f;
 }
 .skill-card-inner{
-	padding: 2rem;
+	padding: 1rem;
 }
 .skill-card-header{
 	text-align: center;
@@ -171,6 +181,36 @@ body{
 .skills-list{
 	list-style: none;
 	font-size: 1.5rem;
+}
+.portfolio-card{
+	position: relative;
+	width: 25rem;
+	height: 25rem;
+	margin: 1.5rem;
+	margin-top: 2rem;
+}
+.portfolio-overlay{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 100%;
+	width: 100%;
+	opacity: 0;
+	transition: .5s ease;
+	border-radius: 2rem;
+	background: rgb(230,169,91);
+	background: linear-gradient(180deg, rgba(230,169,91,1) 30%, rgba(63,63,63,0.75) 100%);
+}
+.portfolio-card:hover .portfolio-overlay{
+	opacity: 1;
+}
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 2rem;
 }
 
 .divider-custom {
