@@ -1,3 +1,9 @@
+$orange: #e6a95b;
+$darkOrange: #dc8923;
+$grey: #3f3f3f;
+$white: #ffffff;
+
+
 body{
 	font-family: 'Montserrat', sans-serif;
 }
@@ -5,7 +11,7 @@ body{
 .imgProfile{
 	width: 30%;
 	border-radius: 50%;
-	border: 7px solid #e6a95b; 
+	border: 7px solid $orange; 
 	margin-bottom: 1rem;
 	margin-top: 1rem;
 }
@@ -19,31 +25,31 @@ body{
 	width: 4rem;
 	border-radius: 100%;
 	background-color: #fff;
-	color: #3f3f3f;
+	color: $grey;
 	font-size: 2rem; 
 	text-decoration: none;
 
 }
 .myicons .icon:hover{
-	background-color: #e6a95b;
+	background-color: $orange;
 	transform: scale(1.1);
 	text-decoration: none;
 }
 
 .custom-btn{
-	background-color: #3f3f3f;
+	background-color: $grey;
 	border-radius: 1rem;
 	color: white;
 	font-size: 1rem;
 }
 .custom-btn:hover{
-	color:#e6a95b;
+	color:$orange;
 	transform: scale(1.1); 
 }
 
 
 .navbar-custom{
-	background-color: #dc8923;
+	background-color: $darkOrange;
 }
 /* change the brand and text color */
 .navbar-custom .navbar-brand{
@@ -55,26 +61,26 @@ body{
 }
 /* change the color of active or hovered links */
 .navbar-custom .nav-item{
-	color: #ffffff;
+	color: $white;
 }
 .navbar-custom .nav-item:hover{
-    color: #ffffff;
-    background-color: #e6a95b;
+    color: $white;
+    background-color: $orange;
     transform: scale(1.02);
     border-radius: 1rem;
 }
 .navbar-custom .nav-item.active{
-    color: #ffffff;
-    background-color: #e6a95b;
+    color: $white;
+    background-color: $orange;
     border-radius: 1rem;
 }
 
 .name{
-	color: white;
+	color: $white;
 	font-size: 3rem;
 }
 .subname{
-	color: white;
+	color: $white;
 	font-size: 2rem;
 	margin-top: 1rem;
 	margin-bottom: 2rem;
@@ -84,8 +90,8 @@ body{
 	vertical-align: middle;
 	padding-top: 1rem;
 	padding-bottom:1rem;
-	color: white;
-	background-color: #e6a95b;
+	color: $white;
+	background-color: $orange;
 }
 .title-text{
 	font-size: 2rem;
@@ -107,14 +113,14 @@ body{
 }
 .date{
 	font-size: 1rem; 
-	color: white;
+	color: $white;
 	margin-top: 3rem;
 	margin-left: 6rem; 
 	margin-right: 4rem;
 
 }
 .date-bg{
-	background-color: #3f3f3f;
+	background-color: $grey;
 	padding: 0.75rem;
 	border-radius: 1.5rem;
 }
@@ -138,22 +144,22 @@ body{
 	font-size: 1.25rem;
 }
 .orange-bg{
-	background-color: #e6a95b;
+	background-color: $orange;
 }
 .grey-bg{
-	background-color: #3f3f3f;
+	background-color: $grey;
 }
 .white-bg{
-	background-color: white;
+	background-color: $white;
 }
 .orange-color{
-	color: #e6a95b; 
+	color: $orange; 
 }
 .grey-color{
-	color: #3f3f3f;
+	color: $grey;
 }
 .white-color{
-	color:white;
+	color:$white;
 }
 
 .skill-card{
@@ -166,7 +172,7 @@ body{
 .skill-icon{
 	margin-right: 1rem;
 	margin-left: 1rem;
-	color: 3f3f3f;
+	color: $grey;
 }
 .skill-card-inner{
 	padding: 1rem;
@@ -176,7 +182,7 @@ body{
 	margin-bottom: 2rem;
 	font-size: 2rem;
 	font-weight: 500;
-	color: #3f3f3f;
+	color: $grey;
 	text-transform: uppercase;
 }
 .skills-list{
@@ -232,7 +238,7 @@ body{
   margin-left: 2rem;
 }
 .divider-custom.divider-light .divider-custom-line {
-  background-color: #fff;
+  background-color: $white;
 }
 
 .footer{
