@@ -3,6 +3,8 @@ $darkOrange: #dc8923;
 $grey: #3f3f3f;
 $white: #ffffff;
 
+@import '../scss/fontawesome.scss','../scss/solid.scss','../scss/regular.scss';
+
 
 body{
 	font-family: 'Montserrat', sans-serif;
