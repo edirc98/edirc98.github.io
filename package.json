@@ -2,7 +2,7 @@
   "name": "edirc98.github.io",
   "version": "1.0.0",
   "description": "Edgar Rodríguez personal web page",
-  "main": "dist/index.html",
+  "main": "index.html",
   "scripts": {
     "dev": "lite-server",
     "test": "echo \"Error: no test specified\" && exit 1",
