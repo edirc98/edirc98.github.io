@@ -15,6 +15,11 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
   </head>
   <body>
     <!-- ══════════════ NAV ══════════════ -->
@@ -83,21 +88,146 @@
     <!-- ══════════════ TECH STACK ══════════════ -->
     <div id="stack">
       <div class="container">
-        <div class="stack-inner">
-          <span class="stack-label">Tech Stack</span>
-          <div class="stack-divider"></div>
-          <div class="stack-items">
-            <span class="tag accent">Unity 2019–2023 LTS</span>
-            <span class="tag accent">C#</span>
-            <span class="tag accent2">Meta XR SDK</span>
-            <span class="tag accent2">OpenXR</span>
-            <span class="tag accent2">XR Interaction Toolkit</span>
-            <span class="tag">Meta Quest 2/3</span>
-            <span class="tag">State Machine</span>
-            <span class="tag">Scriptable Objects</span>
-            <span class="tag">uGUI</span>
-            <span class="tag">Git</span>
+        
+        <div class="section-header fade-up">
+          <p class="section-label">// 00 - Tech Stack</p>
+        </div>
+
+        <div class="stack-grid">
+ 
+          <!-- Engine & Language -->
+          <div class="stack-category">
+            <span class="stack-category-label">Engine & Language</span>
+            <div class="stack-badges">
+              <span class="badge badge-accent">
+                <i class="devicon-unity-plain badge-icon"></i>
+                Unity
+              </span>
+              <span class="badge badge-accent">
+                <i class="devicon-csharp-plain badge-icon"></i>
+                C#
+              </span>
+              <span class="badge">
+                <i class="devicon-python-plain badge-icon"></i>
+                Python
+              </span>
+              <span class="badge">
+                <i class="devicon-cplusplus-plain badge-icon"></i>
+                C++
+              </span>
+              <span class="badge">
+                <i class="devicon-visualstudio-plain badge-icon"></i>
+                Visual Studio
+              </span>
+              <span class="badge">
+                <i class="devicon-vscode-plain badge-icon"></i>
+                VS Code
+              </span>
+              <span class="badge">
+                <i class="devicon-rider-plain badge-icon"></i>
+                Rider
+              </span>
+            </div>
           </div>
+ 
+          <!-- XR & Platforms -->
+          <div class="stack-category">
+            <span class="stack-category-label">XR & Platforms</span>
+            <div class="stack-badges">
+              <span class="badge badge-accent">
+                <i class="devicon-android-plain badge-icon"></i>
+                Android
+              </span>
+              <span class="badge badge-accent">
+                <i class="devicon-apple-original badge-icon"></i>
+                iOS
+              </span>
+              <span class="badge">
+                <i data-lucide="glasses" class="badge-icon"></i>
+                Meta XR SDK
+              </span>
+              <span class="badge">
+                <i data-lucide="globe" class="badge-icon"></i>
+                OpenXR
+              </span>
+              <span class="badge">
+                <i data-lucide="layers" class="badge-icon"></i>
+                XR Toolkit
+              </span>
+              <span class="badge">
+                <i data-lucide="box" class="badge-icon"></i>
+                Meta Quest 3
+              </span>
+              
+            </div>
+          </div>
+ 
+          <!-- Patterns & Architecture -->
+          <div class="stack-category">
+            <span class="stack-category-label">Patterns & Architecture</span>
+            <div class="stack-badges">
+              <span class="badge badge-accent">
+                <i data-lucide="share-2" class="badge-icon"></i>
+                State Machine
+              </span>
+              <span class="badge badge-accent">
+                <i data-lucide="radio" class="badge-icon"></i>
+                Observer
+              </span>
+              <span class="badge">
+                <i data-lucide="layout-panel-left" class="badge-icon"></i>
+                MVC
+              </span>
+              <span class="badge">
+                <i data-lucide="syringe" class="badge-icon"></i>
+                Dependency Injection
+              </span>
+              <span class="badge">
+                <i data-lucide="database" class="badge-icon"></i>
+                Scriptable Objects
+              </span>
+              <span class="badge">
+                <i data-lucide="recycle" class="badge-icon"></i>
+                Object Pooling
+              </span>
+            </div>
+          </div>
+ 
+          <!-- Tools -->
+          <div class="stack-category">
+            <span class="stack-category-label">Tools</span>
+            <div class="stack-badges">
+              <span class="badge badge-accent">
+                <i class="devicon-git-plain badge-icon"></i>
+                Git
+              </span>
+              <span class="badge badge-accent">
+                <i class="devicon-github-original badge-icon"></i>
+                GitHub
+              </span>
+              <span class="badge">
+                <i class="devicon-trello-plain badge-icon"></i>
+                Trello
+              </span>
+              <span class="badge">
+                <i class="devicon-blender-original badge-icon"></i>
+                Blender
+              </span>
+              <span class="badge">
+                <i class="devicon-threedsmax-plain badge-icon"></i>
+                3Ds Max
+              </span>
+              <span class="badge">
+                <i class="devicon-figma-plain badge-icon"></i>
+                Figma
+              </span>
+              <span class="badge">
+                <i data-lucide="brain" class="badge-icon"></i>
+                AI Tools
+              </span>
+            </div>
+          </div>
+ 
         </div>
       </div>
     </div>
@@ -395,5 +525,6 @@
 
     <!-- Scripts -->
     <script src="js/main.js"></script>
+    <script>lucide.createIcons();</script>
   </body>
 </html>

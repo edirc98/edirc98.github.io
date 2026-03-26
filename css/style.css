@@ -2,24 +2,25 @@
    TOKENS
 ────────────────────────────────────────── */
 :root {
-  --bg: #0b0d11;
-  --bg-2: #111318;
-  --bg-3: #181b22;
-  --border: rgba(255, 255, 255, 0.07);
-  --border-hi: rgba(255, 255, 255, 0.14);
-  --text: #e8eaf0;
-  --text-muted: #7a7f91;
-  --text-dim: #484d5c;
-  --accent: #00e5a0; /* teal-green */
-  --accent-2: #5b8cff; /* blue-violet */
-  --accent-3: #ff6b6b; /* coral – sparingly */
+  --bg:           #0b0d11;
+  --bg-2:         #111318;
+  --bg-3:         #181b22;
+  --border:       rgba(255, 255, 255, 0.07);
+  --border-hi:    rgba(255, 255, 255, 0.14);
+  --text:         #e8eaf0;
+  --text-muted:   #7a7f91;
+  --text-dim:     #484d5c;
+  --accent:       #00e5a0; /* teal-green */
+  --accent-hl:    #92fddd; /* teal-green-highlight */
+  --accent-2:     #5b8cff; /* blue-violet */
+  --accent-3:     #ff6b6b; /* coral – sparingly */
   --font-display: "Syne", sans-serif;
-  --font-body: "DM Sans", sans-serif;
-  --font-mono: "DM Mono", monospace;
-  --radius: 6px;
-  --radius-lg: 12px;
-  --max-w: 1100px;
-  --transition: 0.25s ease;
+  --font-body:    "DM Sans", sans-serif;
+  --font-mono:    "DM Mono", monospace;
+  --radius:       6px;
+  --radius-lg:    12px;
+  --max-w:        1100px;
+  --transition:   0.25s ease;
 }
 
 /* ──────────────────────────────────────────
@@ -147,9 +148,7 @@ nav {
   border: 1px solid var(--accent);
   color: var(--accent);
   border-radius: var(--radius);
-  transition:
-    background var(--transition),
-    color var(--transition);
+  transition: background var(--transition), color var(--transition);
 }
 
 .nav-cta:hover {
@@ -285,11 +284,7 @@ nav {
   width: 600px;
   height: 600px;
   border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(0, 229, 160, 0.05) 0%,
-    transparent 70%
-  );
+  background: radial-gradient(circle, rgba(0, 229, 160, 0.05) 0%, transparent 70%);
   right: -100px;
   top: 50%;
   transform: translateY(-50%);
@@ -297,12 +292,8 @@ nav {
 }
 
 @keyframes spin-slow {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 
 /* ──────────────────────────────────────────
@@ -387,32 +378,33 @@ nav {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   color: var(--text-muted);
-  transition:
-    border-color var(--transition),
-    color var(--transition);
+  transition: border-color var(--transition), color var(--transition);
   white-space: nowrap;
 }
 
 .badge:hover {
   border-color: var(--border-hi);
-  color: var(--text);
+  color: var(--accent-hl);
 }
 
 .badge-icon {
+  font-size: 13px;
   width: 13px;
   height: 13px;
-  fill: currentColor;
   flex-shrink: 0;
-  opacity: 0.7;
+  opacity: 0.75;
+  line-height: 1;
+  stroke: currentColor;
 }
 
 .badge.badge-accent {
   color: var(--accent);
-  border-color: rgba(0, 229, 160, 0.2);
+  border-color: var(--accent);
 }
 
 .badge.badge-accent:hover {
-  border-color: rgba(0, 229, 160, 0.5);
+  color: var(--accent-hl);
+  border-color: var(--accent-hl);
 }
 
 .badge.badge-accent .badge-icon {
@@ -421,11 +413,11 @@ nav {
 
 .badge.badge-accent2 {
   color: var(--accent-2);
-  border-color: rgba(91, 140, 255, 0.2);
+  border-color: var(--accent-2);
 }
 
 .badge.badge-accent2:hover {
-  border-color: rgba(91, 140, 255, 0.5);
+  border-color: var(--accent-2);;
 }
 
 .badge.badge-accent2 .badge-icon {
@@ -445,9 +437,7 @@ nav {
   border-radius: var(--radius);
   color: var(--text-muted);
   white-space: nowrap;
-  transition:
-    border-color var(--transition),
-    color var(--transition);
+  transition: border-color var(--transition), color var(--transition);
 }
 
 .tag:hover {
@@ -483,9 +473,7 @@ nav {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  transition:
-    border-color var(--transition),
-    transform var(--transition);
+  transition: border-color var(--transition), transform var(--transition);
   display: flex;
   flex-direction: column;
 }
@@ -673,8 +661,11 @@ nav {
 ────────────────────────────────────────── */
 #publications {
   background: var(--bg-2);
-  margin: 0 -2rem;
   padding: 7rem 0;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 #publications .container {
@@ -814,9 +805,7 @@ footer {
 .fade-up {
   opacity: 0;
   transform: translateY(20px);
-  transition:
-    opacity 0.6s ease,
-    transform 0.6s ease;
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .fade-up.visible {
