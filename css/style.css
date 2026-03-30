@@ -10,12 +10,12 @@
   --text: #e8eaf0;
   --text-muted: #7a7f91;
   --text-dim: #484d5c;
-  --accent: #00e5a0; /* teal-green */
-  --accent-hl: #92fddd; /* teal-green-highlight */
-  --accent-2: #5b8cff; /* blue-violet */
-  --accent-3: #ff6b6b; /* coral – sparingly */
-  --font-display: "Syne", sans-serif;
-  --font-body: "DM Sans", sans-serif;
+  --accent: #f0b357;
+  --accent-hl: #f8e697;
+  --accent-2: rgb(223, 153, 25);
+  --accent-3: #ff6b6b;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Nunito Sans", sans-serif;
   --font-mono: "DM Mono", monospace;
   --radius: 6px;
   --radius-lg: 12px;
@@ -461,12 +461,7 @@ nav {
 
 .tag.accent {
   color: var(--accent);
-  border-color: rgba(0, 229, 160, 0.25);
-}
-
-.tag.accent2 {
-  color: var(--accent-2);
-  border-color: rgba(91, 140, 255, 0.25);
+  border-color: var(--accent-2);
 }
 
 /* ──────────────────────────────────────────
@@ -759,7 +754,7 @@ nav {
   font-family: var(--font-mono);
   font-size: 11px;
   color: var(--accent-2);
-  border: 1px solid rgba(91, 140, 255, 0.2);
+  border: 1px solid rgba(255, 217, 91, 0.2);
   padding: 0.35rem 0.8rem;
   border-radius: var(--radius);
   display: inline-block;
@@ -767,7 +762,7 @@ nav {
 }
 
 .pub-doi:hover {
-  background: rgba(91, 140, 255, 0.08);
+  background: rgba(255, 225, 91, 0.123);
 }
 
 /* ──────────────────────────────────────────
