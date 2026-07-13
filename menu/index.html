@@ -7,193 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Karla:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --board: #263229;
-    --card: #F2EADA;
-    --card-shadow: rgba(0,0,0,0.35);
-    --ink: #2B2419;
-    --ink-soft: #5B5546;
-    --board-text: #EDE6D3;
-    --board-text-dim: #A9B4A5;
-    --mustard: #CC9A2E;
-    --mustard-deep: #A87D22;
-    --rust: #B5502D;
-    --olive: #6E7F55;
-    --line: rgba(237,230,211,0.14);
-  }
-  *{box-sizing:border-box;}
-  body{
-    margin:0;
-    background: var(--board);
-    background-image:
-      radial-gradient(circle at 20% 10%, rgba(255,255,255,0.03), transparent 40%),
-      radial-gradient(circle at 80% 60%, rgba(255,255,255,0.025), transparent 45%);
-    color: var(--board-text);
-    font-family: 'Karla', sans-serif;
-    min-height: 100vh;
-    padding: 32px 20px 60px;
-  }
-  .wrap{max-width: 1080px; margin: 0 auto;}
-  header{margin-bottom: 28px;}
-  .eyebrow{
-    font-family:'IBM Plex Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--mustard);
-    margin: 0 0 8px;
-  }
-  h1{
-    font-family:'Fraunces', serif;
-    font-weight: 700;
-    font-size: clamp(28px, 5vw, 42px);
-    margin: 0 0 6px;
-    line-height: 1.05;
-  }
-  .sub{
-    color: var(--board-text-dim);
-    font-size: 14.5px;
-    max-width: 520px;
-    line-height: 1.5;
-  }
-
-  .summary{
-    display:flex; gap:10px; flex-wrap:wrap;
-    margin: 22px 0 26px;
-  }
-  .pill{
-    font-family:'IBM Plex Mono', monospace;
-    font-size: 12px;
-    padding: 7px 12px;
-    border-radius: 999px;
-    border: 1px solid var(--line);
-    display:flex; align-items:center; gap:7px;
-    background: rgba(255,255,255,0.03);
-  }
-  .pill.ok{ border-color: rgba(110,127,85,0.6); }
-  .dot{width:6px;height:6px;border-radius:50%;background: var(--mustard);}
-
-  .tabs{
-    display:flex; gap:8px; overflow-x:auto; padding-bottom:4px;
-    margin-bottom: 22px;
-    border-bottom: 1px solid var(--line);
-  }
-  .tab{
-    font-family:'Fraunces', serif;
-    font-weight: 600;
-    font-size: 15px;
-    color: var(--board-text-dim);
-    background: none;
-    border: none;
-    padding: 10px 16px;
-    cursor: pointer;
-    white-space: nowrap;
-    position: relative;
-    transition: color .2s;
-  }
-  .tab .num{
-    font-family:'IBM Plex Mono', monospace;
-    font-size: 10px;
-    color: var(--mustard-deep);
-    display:block;
-    margin-bottom: 2px;
-    letter-spacing: 0.1em;
-  }
-  .tab.active{ color: var(--board-text); }
-  .tab.active::after{
-    content:'';
-    position:absolute; left:16px; right:16px; bottom:-1px; height:2px;
-    background: var(--mustard);
-  }
-  .tab:hover{ color: var(--board-text); }
-
-  .toggle-row{
-    display:flex; align-items:center; gap:8px;
-    font-size: 12.5px; color: var(--board-text-dim);
-    margin-bottom: 18px;
-    font-family:'IBM Plex Mono', monospace;
-  }
-  .toggle-row input{ accent-color: var(--mustard); }
-
-  .grid{
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 18px;
-  }
-
-  .card{
-    background: var(--card);
-    color: var(--ink);
-    border-radius: 10px;
-    padding: 18px 18px 16px;
-    box-shadow: 0 10px 22px var(--card-shadow);
-    position: relative;
-    transform: rotate(var(--tilt, 0deg));
-    transition: transform .2s ease;
-    display:flex; flex-direction:column; gap:10px;
-    min-height: 160px;
-  }
-  .card:hover{ transform: rotate(0deg) translateY(-2px); }
-  .card::before{
-    content:'';
-    position:absolute; top:-6px; left:50%; transform: translateX(-50%);
-    width:11px; height:11px; border-radius:50%;
-    background: var(--rust);
-    box-shadow: 0 2px 3px rgba(0,0,0,0.35);
-  }
-  .card-head{
-    display:flex; justify-content:space-between; align-items:flex-start; gap:8px;
-  }
-  .meal-label{
-    font-family:'IBM Plex Mono', monospace;
-    font-size: 10.5px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-  }
-  .time{
-    font-family:'IBM Plex Mono', monospace;
-    font-size: 11px;
-    color: var(--ink-soft);
-    white-space: nowrap;
-  }
-  .title{
-    font-family:'Fraunces', serif;
-    font-weight: 600;
-    font-size: 17px;
-    line-height: 1.25;
-    margin: 0;
-  }
-  .note{
-    font-size: 12.5px;
-    color: var(--ink-soft);
-    line-height: 1.4;
-    flex-grow: 1;
-  }
-  .tags{ display:flex; gap:6px; flex-wrap:wrap; }
-  .tag{
-    font-family:'IBM Plex Mono', monospace;
-    font-size: 10px;
-    padding: 3px 8px;
-    border-radius: 999px;
-    color: white;
-  }
-  .tag.legumbre{ background: var(--olive); }
-  .tag.pescado{ background: var(--rust); }
-  .tag.huevo{ background: #C99A2E; }
-
-  footer{
-    margin-top: 34px;
-    font-size: 11.5px;
-    color: var(--board-text-dim);
-    font-family:'IBM Plex Mono', monospace;
-  }
-
-  @media (prefers-reduced-motion: reduce){
-    .card{ transition:none; }
-  }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="wrap">
@@ -205,138 +19,26 @@
 
   <div class="summary" id="summary"></div>
 
-  <nav class="tabs" id="tabs"></nav>
+  <div class="controls-row">
+    <nav class="tabs" id="tabs"></nav>
+    <div class="view-switch" id="viewSwitch">
+      <button class="view-btn" data-view="day">Vista día</button>
+      <button class="view-btn" data-view="week">Vista semana</button>
+    </div>
+  </div>
 
   <label class="toggle-row">
     <input type="checkbox" id="snackToggle" checked>
     mostrar media mañana
   </label>
 
-  <main class="grid" id="grid"></main>
+  <main id="mainArea"></main>
 
   <footer>
     Versión estática · próximamente: regenerar platos con IA
   </footer>
 </div>
 
-<script>
-const DAYS = ["Lunes","Martes","Miércoles","Jueves","Viernes"];
-const MEAL_ORDER = ["breakfast","snack","lunch","dinner"];
-const MEAL_LABEL = {breakfast:"Desayuno", snack:"Media mañana", lunch:"Comida", dinner:"Cena"};
-
-const MENU = {
-  Lunes: {
-    breakfast: {title:"Tostada integral con aguacate y huevo poché", time:"10 min", note:"Más una pieza de fruta.", tags:["huevo"]},
-    snack: {title:"Yogur natural con nueces", time:"2 min", note:"", tags:[]},
-    lunch: {title:"Lentejas estofadas con zanahoria, calabacín y pimiento", time:"10 min", note:"Preparadas el domingo, solo calentar.", tags:["legumbre"]},
-    dinner: {title:"Salmón al horno con patata cocida y ensalada verde", time:"25 min", note:"", tags:["pescado"]}
-  },
-  Martes: {
-    breakfast: {title:"Porridge de avena con plátano y canela", time:"10 min", note:"", tags:[]},
-    snack: {title:"Fruta con un puñado de almendras", time:"2 min", note:"", tags:[]},
-    lunch: {title:"Pollo a la plancha con arroz integral y verduras salteadas", time:"25 min", note:"Calabacín, pimiento y zanahoria. Usa el arroz precocido.", tags:[]},
-    dinner: {title:"Tortilla de patata y cebolla con ensalada de tomate", time:"25 min", note:"", tags:["huevo"]}
-  },
-  Miércoles: {
-    breakfast: {title:"Tostada con tomate, aceite de oliva y jamón", time:"10 min", note:"", tags:[]},
-    snack: {title:"Yogur con fruta troceada", time:"2 min", note:"", tags:[]},
-    lunch: {title:"Garbanzos con espinacas y huevo duro", time:"10 min", note:"Preparados el domingo.", tags:["legumbre","huevo"]},
-    dinner: {title:"Merluza al horno con puré de patata y judías verdes", time:"25 min", note:"", tags:["pescado"]}
-  },
-  Jueves: {
-    breakfast: {title:"Batido de plátano, avena, leche y cacao puro", time:"5 min", note:"", tags:[]},
-    snack: {title:"Una pieza de fruta", time:"1 min", note:"", tags:[]},
-    lunch: {title:"Pasta integral con boloñesa de pavo y verduras", time:"15 min", note:"Salsa preparada el domingo.", tags:[]},
-    dinner: {title:"Ensalada completa: atún, huevo duro, tomate, maíz y patata", time:"15 min", note:"", tags:["pescado","huevo"]}
-  },
-  Viernes: {
-    breakfast: {title:"Tostada con queso fresco batido y pavo", time:"10 min", note:"", tags:[]},
-    snack: {title:"Fruta con frutos secos", time:"2 min", note:"", tags:[]},
-    lunch: {title:"Arroz con pollo, cebolla, pimiento y guisantes", time:"30 min", note:"Estilo \"una sola olla\".", tags:[]},
-    dinner: {title:"Revuelto de champiñones y espinacas con huevo y pan tostado", time:"15 min", note:"Cierre ligero de semana.", tags:["huevo"]}
-  }
-};
-
-let activeDay = "Lunes";
-let showSnack = true;
-
-function weekCounts(){
-  let legumbre = 0, pescado = 0;
-  DAYS.forEach(d=>{
-    MEAL_ORDER.forEach(m=>{
-      const meal = MENU[d][m];
-      if(meal.tags.includes("legumbre")) legumbre++;
-      if(meal.tags.includes("pescado")) pescado++;
-    });
-  });
-  return {legumbre, pescado};
-}
-
-function renderSummary(){
-  const {legumbre, pescado} = weekCounts();
-  document.getElementById("summary").innerHTML = `
-    <span class="pill ${legumbre>=1?'ok':''}"><span class="dot"></span>🫘 legumbre × ${legumbre} esta semana</span>
-    <span class="pill ${pescado>=1?'ok':''}"><span class="dot"></span>🐟 pescado × ${pescado} esta semana</span>
-  `;
-}
-
-function renderTabs(){
-  const el = document.getElementById("tabs");
-  el.innerHTML = "";
-  DAYS.forEach((d, i)=>{
-    const btn = document.createElement("button");
-    btn.className = "tab" + (d===activeDay ? " active" : "");
-    btn.innerHTML = `<span class="num">0${i+1}</span>${d}`;
-    btn.onclick = ()=>{ activeDay = d; render(); };
-    el.appendChild(btn);
-  });
-}
-
-function tilt(i){
-  const vals = [-0.6, 0.5, -0.4, 0.7, -0.3];
-  return vals[i % vals.length] + "deg";
-}
-
-function tagMarkup(tags){
-  if(!tags.length) return "";
-  const labels = {legumbre:"🫘 legumbre", pescado:"🐟 pescado", huevo:"🥚 huevo"};
-  return `<div class="tags">${tags.map(t=>`<span class="tag ${t}">${labels[t]}</span>`).join("")}</div>`;
-}
-
-function renderGrid(){
-  const el = document.getElementById("grid");
-  el.innerHTML = "";
-  const mealsToShow = MEAL_ORDER.filter(m => showSnack || m !== "snack");
-  mealsToShow.forEach((m, i)=>{
-    const meal = MENU[activeDay][m];
-    const card = document.createElement("div");
-    card.className = "card";
-    card.style.setProperty("--tilt", tilt(i));
-    card.innerHTML = `
-      <div class="card-head">
-        <span class="meal-label">${MEAL_LABEL[m]}</span>
-        <span class="time">${meal.time}</span>
-      </div>
-      <p class="title">${meal.title}</p>
-      <p class="note">${meal.note}</p>
-      ${tagMarkup(meal.tags)}
-    `;
-    el.appendChild(card);
-  });
-}
-
-function render(){
-  renderSummary();
-  renderTabs();
-  renderGrid();
-}
-
-document.getElementById("snackToggle").addEventListener("change", (e)=>{
-  showSnack = e.target.checked;
-  renderGrid();
-});
-
-render();
-</script>
+<script src="script.js"></script>
 </body>
 </html>
