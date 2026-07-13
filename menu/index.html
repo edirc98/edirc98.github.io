@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menú semanal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Karla:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board: #263229;
+    --board-deep: #1D2721;
+    --card: #F2EADA;
+    --card-shadow: rgba(0,0,0,0.35);
+    --ink: #2B2419;
+    --ink-soft: #5B5546;
+    --board-text: #EDE6D3;
+    --board-text-dim: #A9B4A5;
+    --mustard: #CC9A2E;
+    --mustard-deep: #A87D22;
+    --rust: #B5502D;
+    --olive: #6E7F55;
+    --line: rgba(237,230,211,0.14);
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background: var(--board);
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(255,255,255,0.03), transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(255,255,255,0.025), transparent 45%);
+    color: var(--board-text);
+    font-family: 'Karla', sans-serif;
+    min-height: 100vh;
+    padding: 32px 20px 60px;
+  }
+  .wrap{max-width: 1080px; margin: 0 auto;}
+  header{margin-bottom: 28px;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--mustard);
+    margin: 0 0 8px;
+  }
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight: 700;
+    font-size: clamp(28px, 5vw, 42px);
+    margin: 0 0 6px;
+    line-height: 1.05;
+  }
+  .sub{
+    color: var(--board-text-dim);
+    font-size: 14.5px;
+    max-width: 520px;
+    line-height: 1.5;
+  }
+
+  .summary{
+    display:flex; gap:10px; flex-wrap:wrap;
+    margin: 22px 0 26px;
+  }
+  .pill{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 12px;
+    padding: 7px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    display:flex; align-items:center; gap:7px;
+    background: rgba(255,255,255,0.03);
+    transition: border-color .25s;
+  }
+  .pill.ok{ border-color: rgba(110,127,85,0.6); }
+  .pill.low{ border-color: rgba(181,80,45,0.7); color: #E7B39C; }
+  .dot{width:6px;height:6px;border-radius:50%;background: var(--mustard);}
+
+  .tabs{
+    display:flex; gap:8px; overflow-x:auto; padding-bottom:4px;
+    margin-bottom: 22px;
+    border-bottom: 1px solid var(--line);
+  }
+  .tab{
+    font-family:'Fraunces', serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--board-text-dim);
+    background: none;
+    border: none;
+    padding: 10px 16px;
+    cursor: pointer;
+    white-space: nowrap;
+    position: relative;
+    transition: color .2s;
+  }
+  .tab .num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--mustard-deep);
+    display:block;
+    margin-bottom: 2px;
+    letter-spacing: 0.1em;
+  }
+  .tab.active{ color: var(--board-text); }
+  .tab.active::after{
+    content:'';
+    position:absolute; left:16px; right:16px; bottom:-1px; height:2px;
+    background: var(--mustard);
+  }
+  .tab:hover{ color: var(--board-text); }
+
+  .toggle-row{
+    display:flex; align-items:center; gap:8px;
+    font-size: 12.5px; color: var(--board-text-dim);
+    margin-bottom: 18px;
+    font-family:'IBM Plex Mono', monospace;
+  }
+  .toggle-row input{ accent-color: var(--mustard); }
+
+  .grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 18px;
+  }
+
+  .card{
+    background: var(--card);
+    color: var(--ink);
+    border-radius: 10px;
+    padding: 18px 18px 16px;
+    box-shadow: 0 10px 22px var(--card-shadow);
+    position: relative;
+    transform: rotate(var(--tilt, 0deg));
+    transition: transform .2s ease;
+    display:flex; flex-direction:column; gap:10px;
+    min-height: 178px;
+  }
+  .card:hover{ transform: rotate(0deg) translateY(-2px); }
+  .card::before{
+    content:'';
+    position:absolute; top:-6px; left:50%; transform: translateX(-50%);
+    width:11px; height:11px; border-radius:50%;
+    background: var(--rust);
+    box-shadow: 0 2px 3px rgba(0,0,0,0.35);
+  }
+  .card-head{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:8px;
+  }
+  .meal-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .time{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+  .title{
+    font-family:'Fraunces', serif;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 1.25;
+    margin: 0;
+  }
+  .note{
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    line-height: 1.4;
+    flex-grow: 1;
+  }
+  .tags{ display:flex; gap:6px; flex-wrap:wrap; }
+  .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 999px;
+    color: white;
+  }
+  .tag.legumbre{ background: var(--olive); }
+  .tag.pescado{ background: var(--rust); }
+  .tag.huevo{ background: #C99A2E; }
+
+  .card-foot{
+    display:flex; justify-content:flex-end; margin-top: auto;
+  }
+  .swap-btn{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--ink);
+    background: rgba(43,36,25,0.06);
+    border: 1px solid rgba(43,36,25,0.18);
+    padding: 6px 11px;
+    border-radius: 6px;
+    cursor: pointer;
+    display:flex; align-items:center; gap:6px;
+    transition: background .2s, border-color .2s;
+  }
+  .swap-btn:hover{ background: rgba(43,36,25,0.12); border-color: rgba(43,36,25,0.3); }
+  .swap-btn:disabled{ opacity:0.55; cursor: default; }
+  .spin{
+    width:10px; height:10px; border-radius:50%;
+    border: 2px solid rgba(43,36,25,0.25);
+    border-top-color: var(--ink);
+    animation: sp .7s linear infinite;
+  }
+  @keyframes sp{ to{ transform: rotate(360deg); } }
+
+  .error-note{
+    font-size: 11px; color: var(--rust); font-family:'IBM Plex Mono', monospace;
+  }
+
+  footer{
+    margin-top: 34px;
+    font-size: 11.5px;
+    color: var(--board-text-dim);
+    font-family:'IBM Plex Mono', monospace;
+  }
+  footer button{
+    font-family:'IBM Plex Mono', monospace;
+    background:none; border: 1px solid var(--line); color: var(--board-text-dim);
+    padding: 6px 10px; border-radius:6px; cursor:pointer; font-size:11px;
+  }
+  footer button:hover{ color: var(--board-text); border-color: var(--mustard); }
+
+  @media (prefers-reduced-motion: reduce){
+    .card, .spin{ transition:none; animation:none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Lunes — Viernes</p>
+    <h1>Menú semanal</h1>
+    <p class="sub">Proteína, hidrato y verdura en cada comida principal. Toca «otra opción» en cualquier plato para cambiarlo sin perder el equilibrio de la semana.</p>
+  </header>
+
+  <div class="summary" id="summary"></div>
+
+  <nav class="tabs" id="tabs"></nav>
+
+  <label class="toggle-row">
+    <input type="checkbox" id="snackToggle" checked>
+    mostrar media mañana
+  </label>
+
+  <main class="grid" id="grid"></main>
+
+  <footer>
+    <span id="saveState">Guardado automáticamente en este dispositivo</span>
+    &nbsp;·&nbsp;
+    <button id="resetBtn">Restaurar menú original</button>
+  </footer>
+</div>
+
+<script>
+const DAYS = ["Lunes","Martes","Miércoles","Jueves","Viernes"];
+const MEAL_ORDER = ["breakfast","snack","lunch","dinner"];
+const MEAL_LABEL = {breakfast:"Desayuno", snack:"Media mañana", lunch:"Comida", dinner:"Cena"};
+
+const DEFAULT_MENU = {
+  Lunes: {
+    breakfast: {title:"Tostada integral con aguacate y huevo poché", time:"10 min", note:"Más una pieza de fruta.", tags:["huevo"]},
+    snack: {title:"Yogur natural con nueces", time:"2 min", note:"", tags:[]},
+    lunch: {title:"Lentejas estofadas con zanahoria, calabacín y pimiento", time:"10 min", note:"Preparadas el domingo, solo calentar.", tags:["legumbre"]},
+    dinner: {title:"Salmón al horno con patata cocida y ensalada verde", time:"25 min", note:"", tags:["pescado"]}
+  },
+  Martes: {
+    breakfast: {title:"Porridge de avena con plátano y canela", time:"10 min", note:"", tags:[]},
+    snack: {title:"Fruta con un puñado de almendras", time:"2 min", note:"", tags:[]},
+    lunch: {title:"Pollo a la plancha con arroz integral y verduras salteadas", time:"25 min", note:"Calabacín, pimiento y zanahoria. Usa el arroz precocido.", tags:[]},
+    dinner: {title:"Tortilla de patata y cebolla con ensalada de tomate", time:"25 min", note:"", tags:["huevo"]}
+  },
+  Miércoles: {
+    breakfast: {title:"Tostada con tomate, aceite de oliva y jamón", time:"10 min", note:"", tags:[]},
+    snack: {title:"Yogur con fruta troceada", time:"2 min", note:"", tags:[]},
+    lunch: {title:"Garbanzos con espinacas y huevo duro", time:"10 min", note:"Preparados el domingo.", tags:["legumbre","huevo"]},
+    dinner: {title:"Merluza al horno con puré de patata y judías verdes", time:"25 min", note:"", tags:["pescado"]}
+  },
+  Jueves: {
+    breakfast: {title:"Batido de plátano, avena, leche y cacao puro", time:"5 min", note:"", tags:[]},
+    snack: {title:"Una pieza de fruta", time:"1 min", note:"", tags:[]},
+    lunch: {title:"Pasta integral con boloñesa de pavo y verduras", time:"15 min", note:"Salsa preparada el domingo.", tags:[]},
+    dinner: {title:"Ensalada completa: atún, huevo duro, tomate, maíz y patata", time:"15 min", note:"", tags:["pescado","huevo"]}
+  },
+  Viernes: {
+    breakfast: {title:"Tostada con queso fresco batido y pavo", time:"10 min", note:"", tags:[]},
+    snack: {title:"Fruta con frutos secos", time:"2 min", note:"", tags:[]},
+    lunch: {title:"Arroz con pollo, cebolla, pimiento y guisantes", time:"30 min", note:"Estilo \"una sola olla\".", tags:[]},
+    dinner: {title:"Revuelto de champiñones y espinacas con huevo y pan tostado", time:"15 min", note:"Cierre ligero de semana.", tags:["huevo"]}
+  }
+};
+
+let menu = null;
+let activeDay = "Lunes";
+let showSnack = true;
+const STORAGE_KEY = "menu-semanal-v1";
+
+function cloneDefault(){ return JSON.parse(JSON.stringify(DEFAULT_MENU)); }
+
+async function loadMenu(){
+  try{
+    const res = await window.storage.get(STORAGE_KEY);
+    menu = res && res.value ? JSON.parse(res.value) : cloneDefault();
+  }catch(e){
+    menu = cloneDefault();
+  }
+  render();
+}
+
+async function persist(){
+  try{
+    await window.storage.set(STORAGE_KEY, JSON.stringify(menu));
+  }catch(e){ /* silent: still works in-memory this session */ }
+}
+
+function weekCounts(){
+  let legumbre = 0, pescado = 0;
+  DAYS.forEach(d=>{
+    MEAL_ORDER.forEach(m=>{
+      const meal = menu[d][m];
+      if(meal.tags && meal.tags.includes("legumbre")) legumbre++;
+      if(meal.tags && meal.tags.includes("pescado")) pescado++;
+    });
+  });
+  return {legumbre, pescado};
+}
+
+function renderSummary(){
+  const {legumbre, pescado} = weekCounts();
+  const el = document.getElementById("summary");
+  el.innerHTML = `
+    <span class="pill ${legumbre>=1?'ok':'low'}"><span class="dot"></span>🫘 legumbre × ${legumbre} esta semana</span>
+    <span class="pill ${pescado>=1?'ok':'low'}"><span class="dot"></span>🐟 pescado × ${pescado} esta semana</span>
+  `;
+}
+
+function renderTabs(){
+  const el = document.getElementById("tabs");
+  el.innerHTML = "";
+  DAYS.forEach((d, i)=>{
+    const btn = document.createElement("button");
+    btn.className = "tab" + (d===activeDay ? " active" : "");
+    btn.innerHTML = `<span class="num">0${i+1}</span>${d}`;
+    btn.onclick = ()=>{ activeDay = d; render(); };
+    el.appendChild(btn);
+  });
+}
+
+function tilt(i){
+  const vals = [-0.6, 0.5, -0.4, 0.7, -0.3];
+  return vals[i % vals.length] + "deg";
+}
+
+function tagMarkup(tags){
+  if(!tags || !tags.length) return "";
+  const labels = {legumbre:"🫘 legumbre", pescado:"🐟 pescado", huevo:"🥚 huevo"};
+  return `<div class="tags">${tags.map(t=>`<span class="tag ${t}">${labels[t]||t}</span>`).join("")}</div>`;
+}
+
+function renderGrid(){
+  const el = document.getElementById("grid");
+  el.innerHTML = "";
+  let mealsToShow = MEAL_ORDER.filter(m => showSnack || m !== "snack");
+  mealsToShow.forEach((m, i)=>{
+    const meal = menu[activeDay][m];
+    const card = document.createElement("div");
+    card.className = "card";
+    card.style.setProperty("--tilt", tilt(i));
+    card.innerHTML = `
+      <div class="card-head">
+        <span class="meal-label">${MEAL_LABEL[m]}</span>
+        <span class="time">${meal.time || ""}</span>
+      </div>
+      <p class="title">${meal.title}</p>
+      ${meal.note ? `<p class="note">${meal.note}</p>` : `<p class="note"></p>`}
+      ${tagMarkup(meal.tags)}
+      <div class="card-foot">
+        <button class="swap-btn" data-day="${activeDay}" data-meal="${m}">
+          <span class="icon">🔄</span> otra opción
+        </button>
+      </div>
+    `;
+    el.appendChild(card);
+    card.querySelector(".swap-btn").addEventListener("click", onSwap);
+  });
+}
+
+function render(){
+  renderSummary();
+  renderTabs();
+  renderGrid();
+}
+
+async function onSwap(e){
+  const btn = e.currentTarget;
+  const day = btn.dataset.day;
+  const mealKey = btn.dataset.meal;
+  btn.disabled = true;
+  const originalHTML = btn.innerHTML;
+  btn.innerHTML = `<span class="spin"></span> generando…`;
+
+  try{
+    const alt = await fetchAlternative(day, mealKey);
+    menu[day][mealKey] = alt;
+    await persist();
+    render();
+  }catch(err){
+    btn.disabled = false;
+    btn.innerHTML = originalHTML;
+    const card = btn.closest(".card");
+    let errNote = card.querySelector(".error-note");
+    if(!errNote){
+      errNote = document.createElement("p");
+      errNote.className = "error-note";
+      card.insertBefore(errNote, card.querySelector(".card-foot"));
+    }
+    errNote.textContent = "No se pudo generar una alternativa. Inténtalo de nuevo.";
+  }
+}
+
+async function fetchAlternative(day, mealKey){
+  const weekSummary = DAYS.map(d=>{
+    return MEAL_ORDER.map(m => `${d}/${MEAL_LABEL[m]}: ${menu[d][m].title}`).join("; ");
+  }).join(" | ");
+
+  const isMain = (mealKey === "lunch" || mealKey === "dinner");
+  const system = `Eres un asistente de planificación de menús caseros, sencillos y saludables (cocina española cotidiana).
+Reglas estrictas:
+- Nunca uses brócoli, coliflor, espárragos ni verduras similares.
+- Si es comida o cena: debe combinar proteína + hidrato + verdura.
+- Si es desayuno o media mañana: algo ligero, rápido, real (no necesita las 3 categorías).
+- Tiempo de preparación máximo 30 minutos, o indicar que se puede dejar preparado el fin de semana.
+- No repitas ningún plato ya presente en el resto del menú semanal que se te da como contexto.
+- Responde EXCLUSIVAMENTE con un objeto JSON, sin texto adicional, sin markdown, con este formato exacto:
+{"title": "nombre del plato", "time": "X min", "note": "nota breve opcional o cadena vacía", "tags": ["legumbre" y/o "pescado" y/o "huevo" si aplica, si no aplica ninguno deja array vacío]}`;
+
+  const userMsg = `Genera UNA alternativa para: ${MEAL_LABEL[mealKey]} del ${day}.
+Es comida principal con proteína+hidrato+verdura: ${isMain ? "sí" : "no"}.
+Resto del menú semanal actual (para no repetir platos ni desequilibrar): ${weekSummary}`;
+
+  const response = await fetch("https://api.anthropic.com/v1/messages", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      model: "claude-sonnet-4-6",
+      max_tokens: 1000,
+      system: system,
+      messages: [{ role: "user", content: userMsg }]
+    })
+  });
+
+  if(!response.ok) throw new Error("API error");
+  const data = await response.json();
+  const textBlock = (data.content || []).find(b => b.type === "text");
+  if(!textBlock) throw new Error("No text in response");
+  const cleaned = textBlock.text.replace(/```json|```/g, "").trim();
+  const parsed = JSON.parse(cleaned);
+  if(!parsed.title) throw new Error("Malformed response");
+  parsed.tags = parsed.tags || [];
+  return parsed;
+}
+
+document.getElementById("snackToggle").addEventListener("change", (e)=>{
+  showSnack = e.target.checked;
+  renderGrid();
+});
+
+document.getElementById("resetBtn").addEventListener("click", async ()=>{
+  menu = cloneDefault();
+  await persist();
+  render();
+});
+
+loadMenu();
+</script>
+</body>
+</html>
