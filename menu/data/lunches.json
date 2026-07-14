@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Lentejas estofadas con zanahoria, calabacín y pimiento",
+    "time": "10 min",
+    "note": "Prepáralas el domingo, solo calentar.",
+    "tags": ["legumbre"]
+  },
+  {
+    "title": "Pollo a la plancha con arroz integral y verduras salteadas",
+    "time": "25 min",
+    "note": "Calabacín, pimiento y zanahoria.",
+    "tags": ["carne"]
+  },
+  {
+    "title": "Garbanzos con espinacas y huevo duro",
+    "time": "10 min",
+    "note": "Prepáralos el domingo.",
+    "tags": ["legumbre", "huevo"]
+  },
+  {
+    "title": "Pasta integral con boloñesa de pavo y verduras",
+    "time": "15 min",
+    "note": "Salsa preparada el domingo.",
+    "tags": ["carne"]
+  },
+  {
+    "title": "Arroz con pollo, cebolla, pimiento y guisantes",
+    "time": "30 min",
+    "note": "Estilo \"una sola olla\".",
+    "tags": ["carne"]
+  },
+  {
+    "title": "Alubias blancas con verduras y un poco de chorizo",
+    "time": "15 min",
+    "note": "Prepáralas el fin de semana.",
+    "tags": ["legumbre", "carne"]
+  },
+  {
+    "title": "Salmón con quinoa y verduras salteadas",
+    "time": "20 min",
+    "note": "",
+    "tags": ["pescado"]
+  },
+  {
+    "title": "Wok de ternera con arroz y verduras",
+    "time": "20 min",
+    "note": "",
+    "tags": ["carne"]
+  }
+]
