@@ -1,8 +1,0 @@
-[
-  { "id": "legumbre", "label": "Legumbre", "color": "#6E7F55" },
-  { "id": "pescado", "label": "Pescado", "color": "#B5502D" },
-  { "id": "huevo", "label": "Huevo", "color": "#C99A2E" },
-  { "id": "carne", "label": "Carne", "color": "#8A4B3B" },
-  { "id": "lacteos", "label": "Lácteos", "color": "#5B7C99" },
-  { "id": "frutas", "label": "Fruta", "color": "#4ba729" }
-]
